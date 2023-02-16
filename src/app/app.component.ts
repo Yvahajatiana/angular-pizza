@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 
 declare var $: any;
 declare var AOS: any;
@@ -6,15 +6,15 @@ declare var AOS: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterContentInit {
   title = 'angular-pizza';
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
     AOS.init({
       duration: 800,
-      easing: 'slide',
+      easing: 'slide'
     });
 
     $(window).stellar({
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       hideDistantElements: false,
       scrollProperty: 'scroll',
       horizontalOffset: 0,
-      verticalOffset: 0,
+      verticalOffset: 0
     });
 
     $.Scrollax();
@@ -63,22 +63,22 @@ export class AppComponent implements OnInit {
         items: 1,
         navText: [
           "<span class='ion-md-arrow-back'></span>",
-          "<span class='ion-chevron-right'></span>",
+          "<span class='ion-chevron-right'></span>"
         ],
         responsive: {
           0: {
             items: 1,
-            nav: false,
+            nav: false
           },
           600: {
             items: 1,
-            nav: false,
+            nav: false
           },
           1000: {
             items: 1,
-            nav: false,
-          },
-        },
+            nav: false
+          }
+        }
       });
       $('.carousel-work').owlCarousel({
         autoplay: true,
@@ -90,22 +90,22 @@ export class AppComponent implements OnInit {
         nav: true,
         navText: [
           '<span class="ion-ios-arrow-back">',
-          '<span class="ion-ios-arrow-forward">',
+          '<span class="ion-ios-arrow-forward">'
         ],
         responsive: {
           0: {
             items: 1,
-            stagePadding: 0,
+            stagePadding: 0
           },
           600: {
             items: 2,
-            stagePadding: 50,
+            stagePadding: 50
           },
           1000: {
             items: 3,
-            stagePadding: 100,
-          },
-        },
+            stagePadding: 100
+          }
+        }
       });
     };
     carousel();
@@ -166,7 +166,7 @@ export class AppComponent implements OnInit {
               $this.animateNumber(
                 {
                   number: num,
-                  numberStep: comma_separator_number_step,
+                  numberStep: comma_separator_number_step
                 },
                 7000
               );
@@ -235,7 +235,7 @@ export class AppComponent implements OnInit {
           navToggler = $('.navbar-toggler');
         $('html, body').animate(
           {
-            scrollTop: $(hash).offset().top,
+            scrollTop: $(hash).offset().top
           },
           700,
           'easeInOutExpo',
