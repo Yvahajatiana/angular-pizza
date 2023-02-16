@@ -12,7 +12,103 @@ export class AppComponent implements OnInit {
   title = 'angular-pizza';
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 800,
+      easing: 'slide',
+    });
+
+    $(window).stellar({
+      responsive: true,
+      parallaxBackgrounds: true,
+      parallaxElements: true,
+      horizontalScrolling: false,
+      hideDistantElements: false,
+      scrollProperty: 'scroll',
+      horizontalOffset: 0,
+      verticalOffset: 0,
+    });
+
     $.Scrollax();
+
+    const fullHeight = function () {
+      $('.js-fullheight').css('height', $(window).height());
+      $(window).resize(function () {
+        $('.js-fullheight').css('height', $(window).height());
+      });
+    };
+    fullHeight();
+
+    // loader
+    const loader = function () {
+      setTimeout(function () {
+        if ($('#ftco-loader').length > 0) {
+          $('#ftco-loader').removeClass('show');
+        }
+      }, 1);
+    };
+    loader();
+
+    // Scrollax
+    $.Scrollax();
+
+    const carousel = function () {
+      $('.home-slider').owlCarousel({
+        loop: true,
+        autoplay: true,
+        margin: 0,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        nav: false,
+        autoplayHoverPause: false,
+        items: 1,
+        navText: [
+          "<span class='ion-md-arrow-back'></span>",
+          "<span class='ion-chevron-right'></span>",
+        ],
+        responsive: {
+          0: {
+            items: 1,
+            nav: false,
+          },
+          600: {
+            items: 1,
+            nav: false,
+          },
+          1000: {
+            items: 1,
+            nav: false,
+          },
+        },
+      });
+      $('.carousel-work').owlCarousel({
+        autoplay: true,
+        center: true,
+        loop: true,
+        items: 1,
+        margin: 30,
+        stagePadding: 0,
+        nav: true,
+        navText: [
+          '<span class="ion-ios-arrow-back">',
+          '<span class="ion-ios-arrow-forward">',
+        ],
+        responsive: {
+          0: {
+            items: 1,
+            stagePadding: 0,
+          },
+          600: {
+            items: 2,
+            stagePadding: 50,
+          },
+          1000: {
+            items: 3,
+            stagePadding: 100,
+          },
+        },
+      });
+    };
+    carousel();
 
     // scroll
     const scrollWindow = function () {
@@ -135,7 +231,7 @@ export class AppComponent implements OnInit {
       smouthScroll.on('click', function (e: any) {
         e.preventDefault();
 
-        var hash = smouthScroll.hash,
+        const hash = smouthScroll.hash,
           navToggler = $('.navbar-toggler');
         $('html, body').animate(
           {
