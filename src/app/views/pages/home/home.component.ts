@@ -1,76 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CarouselComponent } from 'src/app/shared/carousel/carousel.component';
+import { IntroSectionComponent } from 'src/app/shared/intro-section/intro-section.component';
+import { AboutSectionComponent } from 'src/app/shared/about-section/about-section.component';
+import { ServicesSectionComponent } from 'src/app/shared/services-section/services-section.component';
+import { MenuPresentationSectionComponent } from 'src/app/shared/menu-presentation-section/menu-presentation-section.component';
+import { GallerySectionComponent } from 'src/app/shared/gallery-section/gallery-section.component';
+import { CounterSectionComponent } from 'src/app/shared/counter-section/counter-section.component';
+import { MenuSectionComponent } from 'src/app/shared/menu-section/menu-section.component';
+import { BlogArticlesSectionComponent } from '../../../shared/blog-articles-section/blog-articles-section.component';
+import { ContactUsSectionComponent } from 'src/app/shared/contact-us-section/contact-us-section.component';
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  imports: [
+    CommonModule,
+    CarouselComponent,
+    IntroSectionComponent,
+    AboutSectionComponent,
+    ServicesSectionComponent,
+    MenuPresentationSectionComponent,
+    GallerySectionComponent,
+    CounterSectionComponent,
+    MenuSectionComponent,
+    BlogArticlesSectionComponent,
+    ContactUsSectionComponent
+  ]
 })
 export class HomeComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {
-    const carousel = function () {
-      $('.home-slider').owlCarousel({
-        loop: true,
-        autoplay: true,
-        margin: 0,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        nav: false,
-        autoplayHoverPause: false,
-        items: 1,
-        navText: [
-          "<span class='ion-md-arrow-back'></span>",
-          "<span class='ion-chevron-right'></span>"
-        ],
-        responsive: {
-          0: {
-            items: 1,
-            nav: false
-          },
-          600: {
-            items: 1,
-            nav: false
-          },
-          1000: {
-            items: 1,
-            nav: false
-          }
-        }
-      });
-      $('.carousel-work').owlCarousel({
-        autoplay: true,
-        center: true,
-        loop: true,
-        items: 1,
-        margin: 30,
-        stagePadding: 0,
-        nav: true,
-        navText: [
-          '<span class="ion-ios-arrow-back">',
-          '<span class="ion-ios-arrow-forward">'
-        ],
-        responsive: {
-          0: {
-            items: 1,
-            stagePadding: 0
-          },
-          600: {
-            items: 2,
-            stagePadding: 50
-          },
-          1000: {
-            items: 3,
-            stagePadding: 100
-          }
-        }
-      });
-    };
-    carousel();
-  }
+  ngOnInit(): void {}
 }
