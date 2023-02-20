@@ -8,10 +8,10 @@ declare var AOS: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent {
   title = 'angular-pizza';
 
-  ngAfterContentInit(): void {
+  xngAfterContentInit(): void {
     AOS.init({
       duration: 800,
       easing: 'slide'
